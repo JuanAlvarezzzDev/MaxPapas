@@ -11,3 +11,7 @@ php artisan migrate
 ```
 php artisan db:seed
 ```
+
+# Client React
+
+Instalamos las dependencias y asignamos al axios la URL en la cual vamos a consumir la Api
