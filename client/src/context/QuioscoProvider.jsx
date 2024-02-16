@@ -73,7 +73,7 @@ const QuioscoProvider = ({children}) => {
         toast.success('Eliminado del Pedido')
     }
 
-    const handleSubmitNuevaOrden = async (logout) => {
+    const handleSubmitNuevaOrden = async () => {
         const token = localStorage.getItem('AUTH_TOKEN')
         try {
             const {data} = await clienteAxios.post('/api/pedidos', 
@@ -97,11 +97,11 @@ const QuioscoProvider = ({children}) => {
                 setPedido([])
             }, 1000);
 
-            // Cerrar la sesión del usuario
-            setTimeout(() => {
-                localStorage.removeItem('AUTH_TOKEN');
-                logout();
-            }, 3000);
+            // // Cerrar la sesión del usuario
+            // setTimeout(() => {
+            //     localStorage.removeItem('AUTH_TOKEN');
+            //     logout();
+            // }, 3000);
         } catch (error) {
             console.log(error)
         }
