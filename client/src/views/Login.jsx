@@ -5,7 +5,7 @@ import { useAuth } from '../hooks/useAuth';
 
 export default function Login() {
     
-    const emailRef = createRef();
+    const nameRef = createRef();
     const passwordRef = createRef();
 
     const [errores, setErrores] = useState([])
@@ -18,7 +18,7 @@ export default function Login() {
         e.preventDefault();
 
         const datos = {
-            email: emailRef.current.value,
+            name: nameRef.current.value,
             password: passwordRef.current.value,
         }
        
@@ -42,15 +42,15 @@ export default function Login() {
                     <div className="mb-4">
                         <label
                             className="text-slate-800"
-                            htmlFor="email"
-                        >Email:</label>
+                            htmlFor="name"
+                        >Nombre:</label>
                         <input 
-                            type="email" 
-                            id="email"
+                            type="text" 
+                            id="name"
                             className="mt-2 w-full p-3 bg-gray-50"
-                            name="email"
-                            placeholder="Tu Email"
-                            ref={emailRef}
+                            name="name"
+                            placeholder="Tu Nombre"
+                            ref={nameRef}
                         />
                     </div>
 
@@ -58,7 +58,7 @@ export default function Login() {
                         <label
                             className="text-slate-800"
                             htmlFor="password"
-                        >Password:</label>
+                        >Contraseña:</label>
                         <input 
                             type="password" 
                             id="password"
