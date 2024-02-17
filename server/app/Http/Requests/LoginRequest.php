@@ -33,7 +33,7 @@ class LoginRequest extends FormRequest
     {
         return [
             'name' => 'El nombre es obligatorio',
-            'password' => 'El password es obligatorio'
+            'password' => 'La contraseña es obligatorio'
         ];
     }
 }

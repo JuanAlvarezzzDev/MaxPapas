@@ -7,16 +7,11 @@ export default function Categoria({ categoria }) {
   return (
     <div
       className={`${
-        categoriaActual.id === id ? "bg-amber-400" : "bg-white"
-      } flex items-center gap-4 border w-full p-3 hover:bg-amber-400 cursor-pointer`}
+        categoriaActual.id === id ? "bg-[#ffcc5e9b]" : "bg-transparent"
+      } flex items-center gap-4  w-full p-3 hover:bg-[#ffcc5e9b] cursor-pointer `}
       onClick={() => handleClickCategoria(id)}
     >
-      <img
-        alt="Imagen Icono"
-        src={`/img/icono_${icono}.svg`}
-        className="w-12"
-      />
-      <div className="text-lg font-bold cursor-pointer truncate" type="button">
+      <div className="text-lg capitalize text-pretty tracking-wider cursor-pointer truncate" type="button">
         {nombre}
       </div>
     </div>

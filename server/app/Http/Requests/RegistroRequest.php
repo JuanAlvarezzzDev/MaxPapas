@@ -30,7 +30,7 @@ class RegistroRequest extends FormRequest
             'password' => [
                 'required',
                 'confirmed',
-                PasswordRules::min(8)->letters()->symbols()->numbers()
+                PasswordRules::min(5)->letters()->numbers()
             ]
         ];
     }
@@ -42,7 +42,7 @@ class RegistroRequest extends FormRequest
             'email.required' => 'El Email es obligatorio',
             'email.email' => 'El email no es válido',
             'email.unique' => 'El usuario ya esta registrado',
-            'password' => 'El password debe contener al menos 8 caracteres, un simbolo y un número'
+            'password' => 'El password debe contener al menos 5 caracteres y un número'
         ];
     }
 }

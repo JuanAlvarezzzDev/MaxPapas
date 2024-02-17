@@ -8,8 +8,8 @@ export default function Sidebar() {
     const {logout, user} = useAuth({middleware: 'auth'})
 
     return (
-        <aside className="md:w-72">
-            <div className="p-4">
+        <aside className="md:w-72 flex justify-center flex-col items-center bg-[#F9AA00]">
+            <div className="p-2">
                 <img 
                     className="w-40"
                     src="img/logo.svg"
@@ -17,9 +17,9 @@ export default function Sidebar() {
                 />
             </div>
 
-            <p className="my-10 text-xl text-center">Hola: {user?.name}</p>
+            <p className=" text-xl text-center font-bold w-full bg-black text-white p-2 mb-2">¡Max {user?.name}!</p>
 
-            <div className="mt-10">
+            <div className=" w-full">
                 {categorias.map( categoria => (
                     <Categoria 
                         key={categoria.id}
@@ -28,13 +28,13 @@ export default function Sidebar() {
                 ))}
             </div>
 
-            <div className="my-5 px-5">
+            <div className="my-5 px-5 w-full">
                 <button
                     type="button"
-                    className="text-center bg-red-500 w-full p-3 font-bold text-white truncate"
+                    className="text-center rounded-lg bg-black w-full p-3 font-bold text-white"
                     onClick={logout}
                 >
-                    Cancelar Orden
+                    Cerrar Sesion
                 </button>
             </div>
         </aside>
