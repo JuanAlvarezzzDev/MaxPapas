@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\AdicionCollection;
 use App\Models\Adiciones;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class AdicionesController extends Controller
      */
     public function index()
     {
-        //
+        return new AdicionCollection(Adiciones::where('disponible', 1)->orderBy('id', 'DESC')->get());
     }
 
     /**

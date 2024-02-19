@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\SalsaCollection;
 use App\Models\Salsas;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class SalsasController extends Controller
      */
     public function index()
     {
-        //
+        return new SalsaCollection(Salsas::where('disponible', 1)->orderBy('id', 'DESC')->get());
     }
 
     /**
