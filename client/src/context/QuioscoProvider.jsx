@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from 'react'
 import { toast } from 'react-toastify';
 import clienteAxios from '../config/axios';
+import generateTicket from '../hooks/Printer/Ticket';
 
 const QuioscoContext = createContext();
 
@@ -91,17 +92,18 @@ const QuioscoProvider = ({children}) => {
                     Authorization: `Bearer ${token}`
                 }
             })
+            
 
             toast.success(data.message);
             setTimeout(() => {
                 setPedido([])
             }, 1000);
 
-            // // Cerrar la sesión del usuario
-            // setTimeout(() => {
-            //     localStorage.removeItem('AUTH_TOKEN');
-            //     logout();
-            // }, 3000);
+            // Generar Factura
+            setTimeout(() => {
+                toast.success("Generando Factura");
+                  generateTicket(pedido, total)
+            }, 3000);
         } catch (error) {
             console.log(error)
         }

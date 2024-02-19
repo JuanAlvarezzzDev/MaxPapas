@@ -16,7 +16,7 @@ export default function Resumen() {
     }
 
     return (
-        <aside className="w-72 h-screen overflow-y-scroll p-5">
+        <aside className="w-72 h-screen overflow-y-scroll p-5 relative">
             <h1 className="text-4xl font-black">
                 Mi Pedido
             </h1>
@@ -45,10 +45,10 @@ export default function Resumen() {
             </p>
 
             <form 
-                className="w-full"
+                className="w-full relative"
                 onSubmit={handleSubmit}
             >
-                <div className="mt-5">
+                <div className="mt-5 ">
                     <input
                         type="submit"
                         className={`${comprobarPedido() ? 
