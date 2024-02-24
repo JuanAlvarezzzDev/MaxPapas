@@ -72,7 +72,7 @@ class ProductoSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ),
             array( 
-                'nombre' =>  "Max Trifásica",
+                'nombre' =>  "Max Trifasica",
                 'precio' => 19000,
                 'imagen' => "Trifasica",
                 'categoria_id' => 2,

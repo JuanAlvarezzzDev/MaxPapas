@@ -68,6 +68,7 @@ const CreatePdf = async (props, output) => {
 
       const docDefinition = {
         pageSize, //TAMAÑO HOJA
+        pageOrientation: 'portrait',
         pageMargins, //MARGENES HOJA
         info, //METADATA PDF
         content, // CONTENIDO PDF

@@ -58,7 +58,6 @@ const QuioscoProvider = ({children}) => {
             toast.success('Guardado Correctamente')
         } else {
             setPedido([...pedido, producto])
-            toast.success('Agregado al Pedido')
         }
     }
 
@@ -93,17 +92,17 @@ const QuioscoProvider = ({children}) => {
                 }
             })
             
+            setPedido([])
+            // toast.success(data.message);
+            // setTimeout(() => {
+            //     setPedido([])
+            // }, 1000);
 
-            toast.success(data.message);
-            setTimeout(() => {
-                setPedido([])
-            }, 1000);
-
-            // Generar Factura
-            setTimeout(() => {
-                toast.success("Generando Factura");
-                  generateTicket(pedido, total)
-            }, 3000);
+            // // Generar Factura
+            // setTimeout(() => {
+            //     toast.success("Generando Factura");
+            //       generateTicket(pedido, total)
+            // }, 3000);
         } catch (error) {
             console.log(error)
         }

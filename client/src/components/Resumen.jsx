@@ -2,17 +2,25 @@ import { formatearDinero } from "../helpers";
 import useQuisco from "../hooks/useQuiosco"
 import { useAuth } from "../hooks/useAuth";
 import ResumenProducto from "./ResumenProducto";
+import { useState } from "react";
 
 export default function Resumen() {
     const {pedido, total, handleSubmitNuevaOrden} = useQuisco();
     const { logout} = useAuth({})
+    const [pedidoEnviado, setPedidoEnviado] = useState(false);
 
     const comprobarPedido = () => pedido.length === 0;
 
     const handleSubmit = e => {
-        e.preventDefault();
+        if(!pedidoEnviado){
+            e.preventDefault();
+             setPedidoEnviado(true)
+            handleSubmitNuevaOrden(logout);
+        }
 
-        handleSubmitNuevaOrden(logout);
+    }
+    if (comprobarPedido() && pedidoEnviado) {
+        setPedidoEnviado(false);
     }
 
     return (
@@ -51,12 +59,12 @@ export default function Resumen() {
                 <div className="mt-5 ">
                     <input
                         type="submit"
-                        className={`${comprobarPedido() ? 
+                        className={`${comprobarPedido() || pedidoEnviado ? 
                             'bg-stone-400' : 
                             'bg-black' } 
                             px-5 py-2 rounded uppercase font-bold text-white text-center w-full cursor-pointer`}
-                        value="Confirmar Pedido"
-                        disabled={comprobarPedido()}
+                        value={pedidoEnviado ? "Pedido Enviado" : "Confirmar Pedido"}
+                        disabled={comprobarPedido() || pedidoEnviado}
                     />
                 </div>
             </form>
