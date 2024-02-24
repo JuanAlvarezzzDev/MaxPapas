@@ -8,6 +8,7 @@ const QuioscoContext = createContext();
 const QuioscoProvider = ({ children }) => {
   const [categorias, setCategorias] = useState([]);
   const [adiciones, setAdiciones] = useState([]);
+  const [pedidoAdiciones, setPedidoAdiciones] = useState([])
   const [categoriaActual, setCategoriaActual] = useState({});
   const [modal, setModal] = useState(false);
   const [producto, setProducto] = useState({});
@@ -51,9 +52,9 @@ const QuioscoProvider = ({ children }) => {
       console.error(error);
     }
   };
-  useEffect(() => {
-    obtenerAdiciones();
+  useEffect(() => { 
     obtenerCategorias();
+    obtenerAdiciones();
   }, []);
 
   const handleClickCategoria = (id) => {
@@ -68,6 +69,8 @@ const QuioscoProvider = ({ children }) => {
   const handleSetProducto = (producto) => {
     setProducto(producto);
   };
+  const handleSetAdicion = (adicion) =>{ setPedidoAdiciones([...pedidoAdiciones, adicion]);}
+
 
   const handleAgregarPedido = ({ categoria_id, ...producto }) => {
     if (pedido.some((pedidoState) => pedidoState.id === producto.id)) {
@@ -152,7 +155,8 @@ const QuioscoProvider = ({ children }) => {
     <QuioscoContext.Provider
       value={{
         adiciones,
-        obtenerAdiciones,
+        pedidoAdiciones,
+        handleSetAdicion,
         categorias,
         categoriaActual,
         handleClickCategoria,
