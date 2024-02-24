@@ -4,7 +4,7 @@ import { formatearDinero } from "../helpers";
 
 export default function ModalProducto() {
 
-    const { producto, handleClickModal, handleAgregarPedido, pedido } = useQuisco();
+    const { producto, handleClickModal, handleAgregarPedido, pedido, adiciones } = useQuisco();
     const [cantidad, setCantidad] = useState(1)
     const [edicion, setEdicion] = useState(false)
 
@@ -14,6 +14,7 @@ export default function ModalProducto() {
             setCantidad(productoEdicion.cantidad)
             setEdicion(true)
         } 
+        console.log(adiciones)
     }, [pedido])
 
     return (
