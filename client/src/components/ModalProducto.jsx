@@ -4,13 +4,18 @@ import { formatearDinero } from "../helpers";
 import Adicion from "./Adicion";
 
 export default function ModalProducto() {
-  const { producto, handleClickModal, handleAgregarPedido, pedido, adiciones, pedidoAdiciones } =
-    useQuisco();
+  const {
+    producto,
+    handleClickModal,
+    handleAgregarPedido,
+    pedido,
+    adiciones,
+    pedidoAdiciones,
+  } = useQuisco();
   const [cantidad, setCantidad] = useState(1);
   const [edicion, setEdicion] = useState(false);
 
   useEffect(() => {
-    console.log(pedidoAdiciones)
     if (pedido.some((pedidoState) => pedidoState.id === producto.id)) {
       const productoEdicion = pedido.filter(
         (pedidoState) => pedidoState.id === producto.id
@@ -18,9 +23,11 @@ export default function ModalProducto() {
       setCantidad(productoEdicion.cantidad);
       setEdicion(true);
     }
-  }, [pedido, pedidoAdiciones]);
+  }, [pedido]);
 
- 
+  useEffect(() => {
+    console.log(pedidoAdiciones);
+  }, [pedidoAdiciones]);
 
   return (
     <div className="md:flex items-center gap-10">

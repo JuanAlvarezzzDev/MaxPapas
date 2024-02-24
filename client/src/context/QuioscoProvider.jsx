@@ -8,7 +8,7 @@ const QuioscoContext = createContext();
 const QuioscoProvider = ({ children }) => {
   const [categorias, setCategorias] = useState([]);
   const [adiciones, setAdiciones] = useState([]);
-  const [pedidoAdiciones, setPedidoAdiciones] = useState([])
+  const [pedidoAdiciones, setPedidoAdiciones] = useState([]);
   const [categoriaActual, setCategoriaActual] = useState({});
   const [modal, setModal] = useState(false);
   const [producto, setProducto] = useState({});
@@ -52,7 +52,7 @@ const QuioscoProvider = ({ children }) => {
       console.error(error);
     }
   };
-  useEffect(() => { 
+  useEffect(() => {
     obtenerCategorias();
     obtenerAdiciones();
   }, []);
@@ -69,8 +69,21 @@ const QuioscoProvider = ({ children }) => {
   const handleSetProducto = (producto) => {
     setProducto(producto);
   };
-  const handleSetAdicion = (adicion) =>{ setPedidoAdiciones([...pedidoAdiciones, adicion]);}
+  const handleSetAdicion = (cantidadAdicion, adicion) => {
+    if (pedidoAdiciones.some((item) => item.id === adicion.id)) {
+      const pedidoActualizado = pedidoAdiciones.map((item) => {
+        if (item.id === adicion.id) {
+          return { ...item, cantidad: item.cantidad + cantidadAdicion };
+        }
+        return item;
+      });
 
+      setPedidoAdiciones(pedidoActualizado);
+    } else {
+      const adicionConCantidad = { cantidad: cantidadAdicion, ...adicion };
+      setPedidoAdiciones([adicionConCantidad, ...pedidoAdiciones]);
+    }
+  };
 
   const handleAgregarPedido = ({ categoria_id, ...producto }) => {
     if (pedido.some((pedidoState) => pedidoState.id === producto.id)) {
