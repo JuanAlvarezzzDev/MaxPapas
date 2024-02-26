@@ -16,6 +16,7 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
+    padding: 0,
   },
 };
 
@@ -24,7 +25,7 @@ Modal.setAppElement('#root')
 export default function Layout() {
 
   useAuth({middleware: 'auth'})
-  const { modal } = useQuisco();
+  const { modal} = useQuisco();
   
   return (
     <>
@@ -41,7 +42,6 @@ export default function Layout() {
         <Modal isOpen={modal} style={customStyles}>
             <ModalProducto />
         </Modal>
-
         <ToastContainer />
     </>
   )

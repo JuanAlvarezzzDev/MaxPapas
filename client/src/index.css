@@ -5,4 +5,10 @@
 
 body {
     font-family: "Roboto", sans-serif;
+    
+}
+
+
+.scrollbar{
+    scrollbar-width: none;
 }

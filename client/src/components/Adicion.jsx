@@ -7,9 +7,11 @@ const Adicion = ({ adicion, botonAgregar = false }) => {
   const { nombre, precio } = adicion;
   const [cantidadAdicion, setCantidadAdicion] = useState(1);
   return (
-    <div className="flex w-full gap-5 text-base">
-      <p>{nombre}</p>
-      <p>{formatearDinero(precio)}</p>
+    <div className="border p-3 shadow bg-white flex flex-col justify-center items-center">
+      <h3 className="text-xl">{nombre}</h3>
+      <p className="mt-5 font-black text-2xl text-black">
+        {formatearDinero(precio)}
+      </p>
       <div className="flex gap-4 mt-5">
         <button
           type="button"
@@ -62,7 +64,7 @@ const Adicion = ({ adicion, botonAgregar = false }) => {
       {botonAgregar && (
         <button
           type="button"
-          className=" bg-black text-white w-1/5 p-1 uppercase font-bold"
+          className=" rounded-lg bg-black text-white w-full mt-5 p-3 uppercase font-bold"
           onClick={() => {
             handleSetAdicion(cantidadAdicion, adicion);
           }}
