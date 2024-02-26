@@ -66,6 +66,7 @@ const QuioscoProvider = ({ children }) => {
   const handleClickModal = () => {
     setModal(!modal);
     setModalAdicion(true);
+    setPedidoAdiciones([]);
   };
 
   const handleClickModalAdicion = () => {
@@ -92,6 +93,8 @@ const QuioscoProvider = ({ children }) => {
   };
 
   const handleAgregarPedido = ({ categoria_id, ...producto }) => {
+    setPedidoAdiciones([]);
+
     if (pedido.some((pedidoState) => pedidoState.id === producto.id)) {
       const pedidoActualizado = pedido.map((pedidoState) =>
         pedidoState.id === producto.id ? producto : pedidoState
