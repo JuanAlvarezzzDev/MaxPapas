@@ -3,10 +3,10 @@ import useQuisco from "../hooks/useQuiosco";
 import { formatearDinero } from "../helpers";
 import { ModalAdicion } from "./ModalAdicion";
 import ResumenProducto from "./ResumenProducto";
+import { Link } from "react-router-dom";
 
-export default function ModalProducto() {
+export default function ModalProducto({producto}) {
   const {
-    producto,
     handleClickModal,
     handleAgregarPedido,
     pedido,
@@ -65,7 +65,7 @@ export default function ModalProducto() {
 
         <div className={`${modalAdicion ? "w-2/3" : "w-full "} `}>
           <div className="absolute top-0 right-0 p-3 z-40">
-            <button onClick={handleClickModal}>
+            <Link to={`/`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -80,7 +80,7 @@ export default function ModalProducto() {
                   d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-            </button>
+            </Link>
           </div>
           <div
             className={`${
@@ -168,16 +168,15 @@ export default function ModalProducto() {
             </div>
           </div>
 
-          <button
-            type="button"
+          <Link
+            to={`/`}
             className="bg-black px-5 py-2 mt-5 text-white font-bold uppercase rounded"
             onClick={() => {
               handleAgregarPedido({ ...producto, cantidad });
-              handleClickModal();
             }}
           >
             {edicion ? "Guardar Cambios" : "Añadir al Pedido"}
-          </button>
+          </Link>
         </div>
       </div>
 

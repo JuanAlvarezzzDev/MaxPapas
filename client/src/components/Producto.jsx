@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { formatearDinero } from "../helpers"
 import useQuisco from "../hooks/useQuiosco"
 
@@ -20,16 +21,16 @@ export default function Producto({producto, botonAgregar = false, botonDisponibl
             </p>
 
             {botonAgregar && (
-                <button
-                    type="button"
+                <Link
+                    to={`/pedido/${nombre}/`}
                     className="rounded-lg bg-black text-white w-full mt-5 p-3 uppercase font-bold"
                     onClick={() => {
-                        handleClickModal();
+                        // handleClickModal();
                         handleSetProducto(producto);
                     }}
                 >
                     Agregar
-                </button>
+                </Link>
             )}
 
             {botonDisponible && (
