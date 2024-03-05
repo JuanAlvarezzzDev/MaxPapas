@@ -7,6 +7,7 @@ import Resumen from '../components/Resumen'
 import ModalProducto from '../components/ModalProducto'
 import useQuisco from '../hooks/useQuiosco'
 import { useAuth } from '../hooks/useAuth';
+import { Header } from '../components/Header';
 
 const customStyles = {
   content: {
@@ -28,7 +29,8 @@ export default function Layout() {
   const { modal} = useQuisco();
   
   return (
-    <>
+    <> 
+    <Header/>
         <div className='md:flex'>
           <Sidebar />
 

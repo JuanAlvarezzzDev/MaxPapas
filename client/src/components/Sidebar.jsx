@@ -9,13 +9,6 @@ export default function Sidebar() {
 
     return (
         <aside className="md:w-72 flex justify-center flex-col items-center bg-[#F9AA00]">
-            <div className="p-2">
-                <img 
-                    className="w-40"
-                    src="img/logo.svg"
-                    alt="Imagen Logo"
-                />
-            </div>
 
             <p className=" text-xl text-center font-bold w-full bg-black text-white p-2 mb-2">¡Max {user?.name}!</p>
 
