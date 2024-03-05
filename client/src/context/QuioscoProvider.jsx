@@ -7,6 +7,7 @@ import {
   useAdicion,
   usePedido,
   useProduct,
+  useSidebar,
 } from "../store";
 
 const api = new Api();
@@ -15,6 +16,8 @@ const QuioscoContext = createContext();
 
 const QuioscoProvider = ({ children }) => {
   const { handleChangeBusqueda, busqueda } = useSearch();
+
+  const { showSidebar, setShowSidebar } = useSidebar();
 
   const { categorias, categoriaActual, handleClickCategoria } =
     useCategory(api);
@@ -107,6 +110,8 @@ const QuioscoProvider = ({ children }) => {
         handleEditarCantidad,
         handleChangeBusqueda,
         busqueda,
+        showSidebar,
+        setShowSidebar,
       }}
     >
       {children}

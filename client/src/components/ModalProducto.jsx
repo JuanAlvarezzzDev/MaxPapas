@@ -19,7 +19,6 @@ export default function ModalProducto({producto}) {
   const [totalAdicion, setTotalAdicion] = useState(0);
 
   useEffect(() => {
-    console.log(pedidoAdiciones)
     const nuevoTotal = pedidoAdiciones.reduce(
       (total, producto) => producto.precio + total,
       0

@@ -1,35 +1,43 @@
-import useQuisco from "../hooks/useQuiosco"
-import Categoria from "./Categoria"
-import { useAuth } from "../hooks/useAuth"
+import useQuisco from "../hooks/useQuiosco";
+import Categoria from "./Categoria";
+import { useAuth } from "../hooks/useAuth";
 
 export default function Sidebar() {
+  const { categorias, showSidebar, setShowSidebar } = useQuisco();
+  const { logout, user } = useAuth({ middleware: "auth" });
 
-    const { categorias } = useQuisco()
-    const {logout, user} = useAuth({middleware: 'auth'})
+  return (
+    <aside
+      className={`w-full h-full flex ${showSidebar ? "absolute" : "hidden"} `}
+    >
+      <div
+        className={`flex w-7/12 h-full justify-around flex-col items-center bg-white py-5`}
+      >
+        <p className=" text-xl text-center font-bold w-full ">
+          ¡Max {user?.name}!
+        </p>
 
-    return (
-        <aside className="md:w-72 flex justify-center flex-col items-center bg-[#F9AA00]">
+        <div className=" w-full">
+          {categorias.map((categoria) => (
+            <Categoria key={categoria.id} categoria={categoria} />
+          ))}
+        </div>
 
-            <p className=" text-xl text-center font-bold w-full bg-black text-white p-2 mb-2">¡Max {user?.name}!</p>
+        <div className="my-5 px-5 w-full">
+          <button
+            type="button"
+            className="text-center rounded-lg bg-black w-full p-3 font-bold text-white"
+            onClick={logout}
+          >
+            Cerrar Sesion
+          </button>
+        </div>
+      </div>
 
-            <div className=" w-full">
-                {categorias.map( categoria => (
-                    <Categoria 
-                        key={categoria.id}
-                        categoria={categoria}
-                    />
-                ))}
-            </div>
-
-            <div className="my-5 px-5 w-full">
-                <button
-                    type="button"
-                    className="text-center rounded-lg bg-black w-full p-3 font-bold text-white"
-                    onClick={logout}
-                >
-                    Cerrar Sesion
-                </button>
-            </div>
-        </aside>
-    )
+      <div
+        className="w-5/12 h-full bg-black opacity-[0.50]"
+        onClick={() => setShowSidebar(false)}
+      ></div>
+    </aside>
+  );
 }

@@ -4,21 +4,22 @@ import SearchBar from "./SearchBar";
 import useQuisco from "../hooks/useQuiosco";
 
 export const Header = () => {
-  const {listProductos, busqueda, handleChangeBusqueda} = useQuisco();
+  const { busqueda, handleChangeBusqueda, showSidebar, setShowSidebar } =
+    useQuisco();
   return (
-    <div className="bg-white px-3 w-full flex justify-between items-center">
-      <div className="p-2 w-1/2 hidden">
-        <img className="w-[80px]" src="img/logo.svg" alt="Imagen Logo" />
-      </div>
-
+    <div className="bg-[#f9aa0022] px-3 py-5 w-full flex justify-around items-center">
       <div>
         <SearchBar
+          className="w-1/2"
           value={busqueda}
           changeInput={handleChangeBusqueda}
         />
       </div>
       <div className="bg-[#F9AA00] p-1 rounded-sm">
-        <LuMenuSquare className="text-4xl text-white" />
+        <LuMenuSquare
+          onClick={() => setShowSidebar(!showSidebar)}
+          className="text-4xl text-white"
+        />
       </div>
     </div>
   );
