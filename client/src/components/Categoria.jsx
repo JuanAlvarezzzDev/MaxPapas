@@ -2,7 +2,7 @@ import useQuisco from "../hooks/useQuiosco";
 
 export default function Categoria({ categoria }) {
   const { handleClickCategoria, categoriaActual } = useQuisco();
-  const { icono, id, nombre } = categoria;
+  const {id, nombre } = categoria;
 
   return (
     <div
