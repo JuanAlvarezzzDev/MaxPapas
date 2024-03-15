@@ -15,7 +15,7 @@ export const Header = () => {
           changeInput={handleChangeBusqueda}
         />
       </div>
-      <div className="bg-[#F9AA00] p-1 rounded-sm">
+      <div className="bg-[#F9AA00] p-1 rounded-lg">
         <LuMenuSquare
           onClick={() => setShowSidebar(!showSidebar)}
           className="text-4xl text-white"
