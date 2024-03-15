@@ -82,7 +82,7 @@ const QuioscoProvider = ({ children }) => {
     setModal(!modal);
   };
 
-  /*---------Context Search-----------*/
+
 
   return (
     <QuioscoContext.Provider
