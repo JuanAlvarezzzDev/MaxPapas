@@ -8,11 +8,11 @@ export default function Producto({producto, botonAgregar = false, botonDisponibl
     const { nombre, imagen, precio} = producto
 
   return (
-    <div className="border p-3 shadow bg-white">
+    <div className="border col-span-1 shadow bg-white">
         <img
             alt={`imagen ${nombre}`}
             className="w-full"
-            src={`/img/${imagen}.jpg`}
+            src={`/img/${imagen}.webp`}
         />
         <div className="p-5">
             <h3 className="text-xl">{nombre}</h3>
