@@ -8,7 +8,6 @@ const useCategory = (api) => {
     try {
       const data = await api.fetch("categorias");
       setCategorias(data);
-      setCategoriaActual(data[0]);
     } catch (error) {
       console.error(error);
     }
