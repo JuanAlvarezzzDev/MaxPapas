@@ -7,7 +7,7 @@ export const Header = () => {
   const { busqueda, handleChangeBusqueda, showSidebar, setShowSidebar } =
     useQuisco();
   return (
-    <div className="bg-[#f9aa0022] px-3 py-5 w-full flex justify-around items-center">
+    <div className="bg-[#f9aa0022] px-3 py-5 w-full flex justify-around items-center gap-5">
       <div>
         <SearchBar
           className="w-1/2"

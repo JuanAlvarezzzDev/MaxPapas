@@ -8,22 +8,27 @@ export default function Producto({producto, botonAgregar = false, botonDisponibl
     const { nombre, imagen, precio} = producto
 
   return (
-    <div className="border col-span-1 shadow bg-white">
+    <div className="rounded-md col-span-1 shadow bg-white aspect-square relative overflow-hidden">
+        <div className="w-full h-2/6">
         <img
             alt={`imagen ${nombre}`}
-            className="w-full"
+            className="w-full h-full object-cover"
             src={`/img/${imagen}.webp`}
         />
-        <div className="p-5">
-            <h3 className="text-xl">{nombre}</h3>
-            <p className="mt-5 font-black text-2xl text-black">
+
+        </div>
+
+        <div className="w-full h-4/6  flex justify-start flex-col items-center">
+            <h3 className="text-base text-center mt-2">{nombre}</h3>
+            <div className="absolute bottom-0 right-0 w-full h-20 text-center mt-3">
+            <p className="font-black text-lg text-black">
                 {formatearDinero(precio)}
             </p>
 
             {botonAgregar && (
                 <Link
                     to={`/pedido/${nombre}/`}
-                    className="rounded-lg bg-black text-white w-full mt-5 p-3 uppercase font-bold"
+                    className=" bg-black text-white w-full p-3 uppercase font-bold text-center absolute bottom-0 right-0"
                     onClick={() => {
                         // handleClickModal();
                         handleSetProducto(producto);
@@ -36,12 +41,14 @@ export default function Producto({producto, botonAgregar = false, botonDisponibl
             {botonDisponible && (
                 <button
                     type="button"
-                    className="rounded-lg bg-black text-white w-full mt-5 p-3 uppercase font-bold"
+                    className="rounded-lg bg-black text-white w-full p-3 uppercase font-bold"
                     onClick={() => handleClickProductoAgotado(producto.id)}
                 >
                     Producto Agotado
                 </button>
             )}
+            </div>
+            
 
         </div>
 
