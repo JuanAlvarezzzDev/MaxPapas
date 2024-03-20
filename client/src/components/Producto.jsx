@@ -28,7 +28,7 @@ export default function Producto({producto, botonAgregar = false, botonDisponibl
             {botonAgregar && (
                 <Link
                     to={`/pedido/${nombre}/`}
-                    className=" bg-black text-white w-full p-3 uppercase font-bold text-center absolute bottom-0 right-0"
+                    className=" bg-[#F9AA00] text-white w-full p-3 uppercase font-bold text-center absolute bottom-0 right-0"
                     onClick={() => {
                         // handleClickModal();
                         handleSetProducto(producto);

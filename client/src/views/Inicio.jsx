@@ -31,7 +31,7 @@ export default function Inicio() {
 
   return (
     <>
-      <div className="grid gap-4 grid-cols-2 md:grid-cols-2 xl:grid-cols-3 mb-[60px]">
+      <div className="grid gap-4 grid-cols-2 md:grid-cols-2 xl:grid-cols-3 p-3">
         {filterProduct.map((producto) => (
           <Producto
             key={producto.imagen}
