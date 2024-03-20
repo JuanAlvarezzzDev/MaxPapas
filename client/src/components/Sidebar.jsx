@@ -8,7 +8,7 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`w-full h-full flex z-40 ${showSidebar ? "absolute" : "hidden"} `}
+      className={`top-0  left-0 w-full h-screen flex z-50 ${showSidebar ? "fixed" : "hidden"} `}
     >
       <div
         className={`flex w-7/12 h-full justify-around flex-col items-center bg-white py-5`}
