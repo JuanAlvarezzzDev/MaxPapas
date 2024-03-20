@@ -1,13 +1,13 @@
-import { Outlet } from 'react-router-dom'
-import Modal from 'react-modal'
-import { ToastContainer } from 'react-toastify'
+import { Outlet } from "react-router-dom";
+import Modal from "react-modal";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Sidebar from '../components/Sidebar'
-import Resumen from '../components/Resumen'
-import ModalProducto from '../components/ModalProducto'
-import useQuisco from '../hooks/useQuiosco'
-import { useAuth } from '../hooks/useAuth';
-import { Header } from '../components/Header';
+import Sidebar from "../components/Sidebar";
+import Resumen from "../components/Resumen";
+import ModalProducto from "../components/ModalProducto";
+import useQuisco from "../hooks/useQuiosco";
+import { useAuth } from "../hooks/useAuth";
+import { Header } from "../components/Header";
 
 const customStyles = {
   content: {
@@ -21,30 +21,29 @@ const customStyles = {
   },
 };
 
-Modal.setAppElement('#root')
+Modal.setAppElement("#root");
 
 export default function Layout() {
+  useAuth({ middleware: "auth" });
+  const { modal } = useQuisco();
 
-  useAuth({middleware: 'auth'})
-  const { modal} = useQuisco();
-  
   return (
-    <> 
-    <Header/>
-        <div className='md:flex'>
+    <>
+      <div className="md:flex">
+        <main className="flex-1 h-screen overflow-y-scroll bg-gray-50 relative">
+        <Header />
+          <Outlet/>
           <Sidebar />
-
-          <main className='flex-1 h-screen overflow-y-scroll bg-gray-100 p-3'>
-            <Outlet />
-          </main>
+        </main>
         
-          <Resumen />
-        </div>
+        <Resumen />
+      </div>
 
-        <Modal isOpen={modal} style={customStyles}>
-            <ModalProducto />
-        </Modal>
-        <ToastContainer />
+      <Modal isOpen={modal} style={customStyles}>
+        <ModalProducto />
+      </Modal>
+      <ToastContainer />
+      
     </>
-  )
+  );
 }
