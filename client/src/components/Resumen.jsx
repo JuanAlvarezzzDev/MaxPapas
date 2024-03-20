@@ -26,7 +26,7 @@ export default function Resumen() {
 
   return (
     <>
-      <aside className={`${asideResumen ? "fixed" : "hidden"} md:w-72 w-full bg-white md:h-screen h-full overflow-y-auto bottom-0 left-0 p-5 md:relative md:block`}>
+      <aside className={`${asideResumen ? "fixed" : "hidden"} z-40 md:w-72 w-full bg-white md:h-screen h-full overflow-y-auto bottom-0 left-0 p-5 md:relative md:block`}>
         <h1 className="text-4xl font-black">Mi Pedido</h1>
         <p className="text-lg my-5">
           Aquí podrás ver el resumen y totales de tu pedido
