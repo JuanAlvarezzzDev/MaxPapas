@@ -30,7 +30,7 @@ export default function Layout() {
   return (
     <>
       <div className="md:flex">
-        <main className="flex-1 h-screen overflow-y-scroll bg-gray-50 relative">
+        <main className="flex-1 h-screen overflow-y-scroll bg-gray-50 relative scrollbar">
         <Header />
           <Outlet/>
           <Sidebar />

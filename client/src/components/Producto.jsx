@@ -4,12 +4,12 @@ import useQuisco from "../hooks/useQuiosco"
 
 export default function Producto({producto, botonAgregar = false, botonDisponible = false}) {
 
-    const { handleClickModal, handleSetProducto, handleClickProductoAgotado  } = useQuisco();
+    const {handleSetProducto, handleClickProductoAgotado  } = useQuisco();
     const { nombre, imagen, precio} = producto
 
   return (
     <div className="rounded-md col-span-1 shadow bg-white aspect-square relative overflow-hidden">
-        <div className="w-full h-2/6">
+        <div className="w-full h-2/6 xl:h-3/6">
         <img
             alt={`imagen ${nombre}`}
             className="w-full h-full object-cover"
@@ -18,9 +18,9 @@ export default function Producto({producto, botonAgregar = false, botonDisponibl
 
         </div>
 
-        <div className="w-full h-4/6  flex justify-start flex-col items-center">
+        <div className="w-full h-4/6 xl:h-3/6  flex justify-start flex-col items-center">
             <h3 className="text-base text-center mt-2">{nombre}</h3>
-            <div className="absolute bottom-0 right-0 w-full h-20 text-center mt-3">
+            <div className="absolute bottom-0 right-0 w-full h-20 xl:h-24 text-center mt-3">
             <p className="font-black text-lg text-black">
                 {formatearDinero(precio)}
             </p>
