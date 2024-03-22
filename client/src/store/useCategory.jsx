@@ -7,7 +7,8 @@ const useCategory = (api) => {
   const obtenerCategorias = async () => {
     try {
       const data = await api.fetch("categorias");
-      setCategorias(data);
+      // console.log(data.data)
+      setCategorias(data.data);
     } catch (error) {
       console.error(error);
     }
