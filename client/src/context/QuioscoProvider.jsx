@@ -72,6 +72,7 @@ const QuioscoProvider = ({ children }) => {
     listProductos,
     handleClickProductoAgotado,
     handleSetProducto,
+    obtenerProductoId
   } = useProduct(api);
 
   const handleEditarCantidad = (id) => {
@@ -99,6 +100,7 @@ const QuioscoProvider = ({ children }) => {
         handleClickModal,
         producto,
         listProductos,
+        obtenerProductoId,
         handleSetProducto,
         pedido,
         handleAgregarPedido,
