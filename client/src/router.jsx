@@ -7,7 +7,7 @@ import Login from './views/Login'
 import Ordenes from './views/Ordenes'
 import Productos from './views/Productos'
 import Registro from './views/Registro'
-import OrdenProducto from './views/OrdenProducto'
+import { DetalleProducto } from './views/DetalleProducto'
 
 const router = createBrowserRouter([
     {
@@ -17,12 +17,12 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <Inicio />
+            },
+            {
+                path: '/producto/:idProducto',
+                element: <DetalleProducto/>
             }
         ]
-    },
-    {
-        path: '/pedido/:nombre',
-        element: <OrdenProducto />, 
     },
     {
         path: '/auth',
