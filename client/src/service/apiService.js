@@ -14,7 +14,7 @@ class Api {
       const { data } = await this.clienteAxios.get(`/api/${url}`, {
         headers: this.buildHeaders(),
       });
-      return data.data;
+      return data;
     } catch (error) {
       throw error;
     }
