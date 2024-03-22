@@ -3,6 +3,8 @@ import Producto from "../components/Producto";
 import clienteAxios from "../config/axios";
 import useQuisco from "../hooks/useQuiosco";
 import { useEffect, useState } from "react";
+import { Header } from "../components/Header";
+import { SideBar } from "../components/Sidebar";
 
 export default function Inicio() {
   const { categoriaActual, listProductos, busqueda, handleClickCategoria } = useQuisco();
@@ -31,7 +33,8 @@ export default function Inicio() {
 
   return (
     <>
-      <div className="grid gap-5 grid-cols-2 xl:grid-cols-4 p-3">
+    <Header/>
+      <div className="grid gap-5 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 p-3">
         {filterProduct.map((producto) => (
           <Producto
             key={producto.imagen}
@@ -40,6 +43,7 @@ export default function Inicio() {
           />
         ))}
       </div>
+      <SideBar/>
     </>
   );
 }
