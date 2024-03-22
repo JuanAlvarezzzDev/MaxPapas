@@ -5,7 +5,7 @@ import useQuisco from "../hooks/useQuiosco"
 export default function Producto({producto, botonAgregar = false, botonDisponible = false}) {
 
     const {handleSetProducto, handleClickProductoAgotado  } = useQuisco();
-    const { nombre, imagen, precio} = producto
+    const { id, nombre, imagen, precio} = producto
 
   return (
     <div className="rounded-md col-span-1 shadow bg-white aspect-square relative overflow-hidden">
@@ -27,7 +27,7 @@ export default function Producto({producto, botonAgregar = false, botonDisponibl
 
             {botonAgregar && (
                 <Link
-                    to={`/pedido/${nombre}/`}
+                    to={`/producto/${id}`}
                     className=" bg-[#F9AA00] text-white w-full p-3 uppercase font-bold text-center absolute bottom-0 right-0"
                     onClick={() => {
                         // handleClickModal();
