@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Switch } from '@tremor/react'
 import useQuisco from '../hooks/useQuiosco';
 import { formatearDinero } from '../helpers';
 
@@ -50,21 +49,6 @@ export const DetalleProducto = () => {
                 <p className="font-black text-black">
                   {formatearDinero(precio)}
                 </p>
-              </div>
-              <div className="flex items-center space-x-3 mt-5">
-                <Switch
-                  id="switch"
-                  name="switch"
-                  className="rounded-tremor-full"
-                  checked={stateEnvio}
-                  onChange={handleSwitchChange}
-                />
-                <label
-                  htmlFor="switch"
-                  className="text-tremor-default text-tremor-content dark:text-dark-tremor-content"
-                >
-                  Para Llevar
-                </label>
               </div>
             </div>
           </aside>

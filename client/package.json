@@ -9,10 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.18",
-    "@headlessui/tailwindcss": "^0.2.0",
     "@remixicon/react": "^4.2.0",
-    "@tremor/react": "^3.14.1",
     "axios": "^1.2.3",
     "pdfmake": "^0.2.9",
     "print-js": "^1.6.0",
