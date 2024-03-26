@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import useQuisco from '../hooks/useQuiosco';
-import { formatearDinero } from '../helpers';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import useQuisco from "../hooks/useQuiosco";
+import { formatearDinero } from "../helpers";
+import Switch from "../components/UI/Switch";
 
 export const DetalleProducto = () => {
   const { idProducto } = useParams();
@@ -44,11 +45,19 @@ export const DetalleProducto = () => {
               />
             </div>
             <div className="p-5">
-              <div className="flex w-full justify-between text-xl">
+              <div className="flex w-full justify-between text-2xl">
                 <h3 className="text-center">{nombre}</h3>
                 <p className="font-black text-black">
                   {formatearDinero(precio)}
                 </p>
+              </div>
+              <hr className="mt-3"/>
+              <div className="mt-5">
+                <Switch
+                  checked={stateEnvio}
+                  onChange={(e) => setStateEnvio(e.target.checked)}
+                  label="Para Llevar"
+                />
               </div>
             </div>
           </aside>
