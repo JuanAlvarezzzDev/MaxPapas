@@ -12,3 +12,9 @@ body {
 .scrollbar{
     scrollbar-width: none;
 }
+
+.input-focus:focus{
+    outline: none;
+    border: none;
+    background: transparent;
+}
