@@ -32,7 +32,7 @@ export const DetalleProducto = () => {
       {data && (
         <div className="flex w-full h-screen">
           <aside className="w-1/3  bg-white">
-            <div className="relative w-full  h-2/6 bg-[#f9aa002b] drop-shadow-sm">
+            <div className="relative w-full  h-2/6 bg-primary bg-opacity-30 drop-shadow-sm">
               <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url(/background/maxpapas.webp)` }}
