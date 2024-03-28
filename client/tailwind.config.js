@@ -6,6 +6,9 @@ export default {
       colors: {
         primary: "#F9AA00",
       },
+      dropShadow: {
+        'product': '-3px 5px 14px #ffffff',
+      }
     },
   },
   plugins: [],
