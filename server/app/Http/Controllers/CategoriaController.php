@@ -10,7 +10,8 @@ class CategoriaController extends Controller
 {
     public function index() {
         // return response()->json(['categorias' => Categoria::all()]);
-
-        return new CategoriaCollection(Categoria::all());
+        /* Categoria 7 y 8 Salsas y adiciones */
+        $categorias = Categoria::whereNotIn('id', [7, 8])->get();
+        return new CategoriaCollection($categorias);
     }
 }
