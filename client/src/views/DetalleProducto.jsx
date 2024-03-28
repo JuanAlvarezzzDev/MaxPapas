@@ -61,28 +61,32 @@ export const DetalleProducto = () => {
                 <Selector
                   img="/img/salsas.webp"
                   text="Salsas"
-                  onClick={() => setInfoSeleccionada(JSON.stringify(salsas))}
+                  productos={salsas}
+                  setInfoSeleccionada={setInfoSeleccionada}
                 />
                 <Selector
                   img="/img/papas.webp"
                   text="Papas"
-                  onClick={() => setInfoSeleccionada('Papas Seccion, Aqui va las diferentes papas ')}
+                  productos={gaseosas}
+                  setInfoSeleccionada={setInfoSeleccionada}
                 />
                 <Selector
                   img="/img/adiciones.webp"
                   text="Adiciones"
-                  onClick={() => setInfoSeleccionada(JSON.stringify(adiciones))}
+                  productos={adiciones}
+                  setInfoSeleccionada={setInfoSeleccionada}
                 />
                 <Selector
                   img="/img/gaseosas.webp"
                   text="Gaseosas"
-                  onClick={() => setInfoSeleccionada(JSON.stringify(gaseosas))}
+                  productos={gaseosas}
+                  setInfoSeleccionada={setInfoSeleccionada}
                 />
               </div>
             </div>
           </aside>
 
-          <div className="w-2/3 p-3 h-screen overflow-y-scroll scrollbar">
+          <div className="w-2/3  p-5 overflow-y-scroll scrollbar grid gap-4 grid-cols-4">
           {infoSeleccionada}
           </div>
         </div>
