@@ -22,6 +22,7 @@ Route::middleware('auth:sanctum')->group(function() {
 
 Route::apiResource('/categorias', CategoriaController::class);
 Route::apiResource('/productos', ProductoController::class);
+Route::get('/productos/categoria/{categoriaId}', [ProductoController::class, 'productosPorCategoria']);
 
 // Autenticacion
 Route::post('/registro', [AuthController::class, 'register']);

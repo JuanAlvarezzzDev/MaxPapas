@@ -15,10 +15,30 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        //
-        return new ProductoCollection(Producto::where('disponible', 1)->orderBy('id', 'DESC')->get());
+        // Obtener los IDs de las categorías que deseas excluir (7 y 8)
+        $categoriasExcluidas = [7, 8];
+    
+        // Consulta para obtener los productos excluyendo las categorías 7 y 8
+        $productos = Producto::where('disponible', 1)
+                             ->whereNotIn('categoria_id', $categoriasExcluidas)
+                             ->orderBy('id', 'ASC')
+                             ->get();
+    
+        return new ProductoCollection($productos);
     }
 
+    public function productosPorCategoria($categoriaId)
+    {
+        // Recuperar solo los productos de la categoría especificada
+        $productos = Producto::where('disponible', 1)
+                             ->where('categoria_id', $categoriaId)
+                             ->orderBy('id', 'DESC')
+                             ->get();
+    
+        return new ProductoCollection($productos);
+    }
+    
+    
     /**
      * Store a newly created resource in storage.
      *
