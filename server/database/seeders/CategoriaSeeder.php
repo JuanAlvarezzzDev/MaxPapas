@@ -59,6 +59,12 @@ class CategoriaSeeder extends Seeder
         ]);
 
         DB::table('categorias')->insert([
+            'nombre' => 'Salsas',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('categorias')->insert([
             'nombre' => 'Bebidas',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
