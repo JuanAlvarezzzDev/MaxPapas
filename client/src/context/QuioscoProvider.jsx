@@ -4,7 +4,6 @@ import Api from "../service/apiService";
 import {
   useSearch,
   useCategory,
-  useAdicion,
   usePedido,
   useProduct,
   useSidebar,
@@ -22,9 +21,6 @@ const QuioscoProvider = ({ children }) => {
   const { categorias, categoriaActual, handleClickCategoria } =
     useCategory(api);
 
-  const { adiciones, pedidoAdiciones, handleSetAdicion, setPedidoAdiciones } =
-    useAdicion(api);
-
   /*--------contexto Pedido-------------*/
 
   const {
@@ -37,7 +33,6 @@ const QuioscoProvider = ({ children }) => {
   } = usePedido(api);
 
   const handleAgregarPedido = ({ categoria_id, ...producto }) => {
-    setPedidoAdiciones([]);
 
     if (pedido.some((pedidoState) => pedidoState.id === producto.id)) {
       const pedidoActualizado = pedido.map((pedidoState) =>
@@ -57,7 +52,6 @@ const QuioscoProvider = ({ children }) => {
   const handleClickModal = () => {
     setModal(!modal);
     setModalAdicion(true);
-    setPedidoAdiciones([]);
   };
 
   const handleClickModalAdicion = () => {
@@ -72,7 +66,10 @@ const QuioscoProvider = ({ children }) => {
     listProductos,
     handleClickProductoAgotado,
     handleSetProducto,
-    obtenerProductoId
+    obtenerProductoId,
+    adiciones,
+    salsas,
+    gaseosas
   } = useProduct(api);
 
   const handleEditarCantidad = (id) => {
@@ -89,8 +86,8 @@ const QuioscoProvider = ({ children }) => {
     <QuioscoContext.Provider
       value={{
         adiciones,
-        pedidoAdiciones,
-        handleSetAdicion,
+        salsas,
+        gaseosas,
         categorias,
         categoriaActual,
         handleClickCategoria,

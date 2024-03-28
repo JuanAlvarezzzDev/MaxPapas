@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 const useProduct = (api) => {
   const [producto, setProducto] = useState({});
   const [listProductos, setListProductos] = useState([]);
+  const [adiciones, setAdiciones] = useState([])
+  const [salsas, setSalsas] = useState([])
+  const [gaseosas, setGaseosas] = useState([])
   
   const obtenerProductos = async () => {
     try {
@@ -13,6 +16,15 @@ const useProduct = (api) => {
       console.error(error);
     }
   };
+
+  const obtenerProductosCategoria = async ({id, setState})=>{
+    try{
+      const data = await api.fetch(`productos/categoria/${id}`)
+      setState(data.data)
+    } catch (error){
+      console.log(error)
+    }
+  }
 
   const obtenerProductoId = async (id)=>{
     try{
@@ -39,8 +51,11 @@ const useProduct = (api) => {
 
   useEffect(() => {
     obtenerProductos();
+    obtenerProductosCategoria({ id: 7, setState: setAdiciones });
+    obtenerProductosCategoria({ id: 8, setState: setSalsas });
+    obtenerProductosCategoria({ id: 9, setState: setGaseosas});
   }, []);
-  return {producto, setProducto, listProductos, obtenerProductos, handleClickProductoAgotado, handleSetProducto, obtenerProductoId};
+  return {producto, setProducto, listProductos, obtenerProductos, handleClickProductoAgotado, handleSetProducto, obtenerProductoId, adiciones, salsas, gaseosas};
 };
 
 export default useProduct;

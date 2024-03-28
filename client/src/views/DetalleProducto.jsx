@@ -7,7 +7,7 @@ import Selector from "../components/UI/Selector";
 
 export const DetalleProducto = () => {
   const { idProducto } = useParams();
-  const { obtenerProductoId } = useQuisco();
+  const { obtenerProductoId, adiciones, salsas, gaseosas } = useQuisco();
   const [stateEnvio, setStateEnvio] = useState(false);
   const [infoSeleccionada, setInfoSeleccionada] = useState('');
   const [data, setData] = useState(null);
@@ -30,7 +30,7 @@ export const DetalleProducto = () => {
     <>
       {data && (
         <div className="flex w-full h-screen">
-          <aside className="w-1/3  bg-white">
+          <aside className="w-1/3  bg-white ">
             <div className="relative w-full  h-1/5 bg-primary bg-opacity-90 drop-shadow-sm">
               <div
                 className="absolute inset-0 bg-cover bg-center"
@@ -61,28 +61,28 @@ export const DetalleProducto = () => {
                 <Selector
                   img="/img/salsas.webp"
                   text="Salsas"
-                  onClick={() => setInfoSeleccionada('Salsas Seccion')}
+                  onClick={() => setInfoSeleccionada(JSON.stringify(salsas))}
                 />
                 <Selector
                   img="/img/papas.webp"
                   text="Papas"
-                  onClick={() => setInfoSeleccionada('Papas Seccion')}
+                  onClick={() => setInfoSeleccionada('Papas Seccion, Aqui va las diferentes papas ')}
                 />
                 <Selector
                   img="/img/adiciones.webp"
                   text="Adiciones"
-                  onClick={() => setInfoSeleccionada('Adiciones Seccion')}
+                  onClick={() => setInfoSeleccionada(JSON.stringify(adiciones))}
                 />
                 <Selector
                   img="/img/gaseosas.webp"
                   text="Gaseosas"
-                  onClick={() => setInfoSeleccionada('Gaseosas Seccion')}
+                  onClick={() => setInfoSeleccionada(JSON.stringify(gaseosas))}
                 />
               </div>
             </div>
           </aside>
 
-          <div className="w-2/3 p-3">
+          <div className="w-2/3 p-3 h-screen overflow-y-scroll scrollbar">
           {infoSeleccionada}
           </div>
         </div>
